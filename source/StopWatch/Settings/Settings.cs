@@ -55,6 +55,8 @@ namespace StopWatch
         public PauseAndResumeSetting PauseOnSessionLock { get; set; }
         public WorklogCommentSetting PostWorklogComment { get; set; }
 
+        public int PauseOnInactivity { get; set; }
+
         public string Username { get; set; }
         public string Password { get; set; }
         public bool RememberCredentials { get; set; }
@@ -101,6 +103,7 @@ namespace StopWatch
             this.FirstRun = Properties.Settings.Default.FirstRun;
             this.SaveTimerState = (SaveTimerSetting)Properties.Settings.Default.SaveTimerState;
             this.PauseOnSessionLock = (PauseAndResumeSetting)Properties.Settings.Default.PauseOnSessionLock;
+            this.PauseOnInactivity = Properties.Settings.Default.PauseOnInactivity;
             this.PostWorklogComment = (WorklogCommentSetting)Properties.Settings.Default.PostWorklogComment;
 
             this.CurrentFilter = Properties.Settings.Default.CurrentFilter;
@@ -114,6 +117,7 @@ namespace StopWatch
             this.StartTransitions = Properties.Settings.Default.StartTransitions;
 
             this.LoggingEnabled = Properties.Settings.Default.LoggingEnabled;
+            
         }
 
 
@@ -143,6 +147,7 @@ namespace StopWatch
             Properties.Settings.Default.FirstRun = this.FirstRun;
             Properties.Settings.Default.SaveTimerState = (int)this.SaveTimerState;
             Properties.Settings.Default.PauseOnSessionLock = (int)this.PauseOnSessionLock;
+            Properties.Settings.Default.PauseOnInactivity = (int)this.PauseOnInactivity;
             Properties.Settings.Default.PostWorklogComment = (int)this.PostWorklogComment;
 
             Properties.Settings.Default.CurrentFilter = this.CurrentFilter;

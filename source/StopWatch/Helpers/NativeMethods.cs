@@ -27,9 +27,14 @@ namespace StopWatch
         [DllImport("user32")]
         public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
 
-        [DllImport("user32")]
+        [DllImport("user32", CharSet = CharSet.Unicode)]
         public static extern int RegisterWindowMessage(string message);
 
+        [DllImport("User32.dll", CharSet = CharSet.Unicode)]
+        public static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        [DllImport("Kernel32.dll")]
+        public static extern uint GetLastError();
 
     }
 
@@ -39,5 +44,11 @@ namespace StopWatch
         Leave,
         SetTo,
         ManualDecrease
+    }
+
+    internal struct LASTINPUTINFO {
+        public uint cbSize;
+
+        public uint dwTime;
     }
 }

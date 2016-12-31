@@ -18,6 +18,7 @@ using System;
 
 namespace StopWatch
 {
+    [Serializable]
     internal class AuthenticateNotYetCalledException : Exception
     {
     }

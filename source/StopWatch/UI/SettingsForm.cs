@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 **************************************************************************/
+using StopWatch.Helpers;
 using StopWatch.Logging;
 using System.Diagnostics;
 using System.IO;
@@ -79,6 +80,11 @@ namespace StopWatch
             tbStartTransitions.Text = this.settings.StartTransitions;
 
             cbLoggingEnabbled.Checked = this.settings.LoggingEnabled;
+
+            cbPauseOnInactivity.DataSource = UserActivity.InactivityTimeouts;
+            cbPauseOnInactivity.DisplayMember = "Name";
+            cbPauseOnInactivity.ValueMember = "Seconds";
+
         }
         #endregion
 
@@ -101,6 +107,8 @@ namespace StopWatch
                 this.settings.StartTransitions = tbStartTransitions.Text;
 
                 this.settings.LoggingEnabled = cbLoggingEnabbled.Checked;
+
+                this.settings.PauseOnInactivity = (int)cbPauseOnInactivity.SelectedValue;
             }
         }
 
@@ -118,5 +126,5 @@ namespace StopWatch
         {
             Process.Start(Path.GetDirectoryName(Logger.Instance.LogfilePath));
         }
-    }
+     }
 }

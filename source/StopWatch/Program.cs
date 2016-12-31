@@ -40,7 +40,7 @@ namespace StopWatch
                 AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
                 Microsoft.Win32.SystemEvents.SessionSwitch += new Microsoft.Win32.SessionSwitchEventHandler(SystemEvents_SessionSwitch);
-
+                
                 Application.Run(new MainForm());
 
                 mutex.ReleaseMutex();

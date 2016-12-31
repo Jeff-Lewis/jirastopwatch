@@ -20,6 +20,7 @@ using System.Net;
 
 namespace StopWatch
 {
+    [Serializable]
     internal class RequestDeniedException : Exception
     {
     }
